@@ -63,7 +63,6 @@ try:
         st.plotly_chart(visuals[7], use_container_width=True)
         st.plotly_chart(visuals[8], use_container_width=True)
 
-    st.header("DataFrame")
 
 except Exception as e:
     st.error("Error! Reload the page.")
