@@ -64,7 +64,6 @@ try:
         st.plotly_chart(visuals[8], use_container_width=True)
 
     st.header("DataFrame")
-    st.write(maindf)
 
 except Exception as e:
     st.error("Error! Reload the page.")
