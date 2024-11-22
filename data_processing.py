@@ -19,7 +19,7 @@ def process_data(df):
     df['Quantity Ordered'] = pd.to_numeric(df['Quantity Ordered'])
     df['Price Each'] = pd.to_numeric(df['Price Each'])
     df['Order ID'] = pd.to_numeric(df['Order ID'])
-    df['Order Date'] = pd.to_datetime(df['Order Date'], errors='coerce')
+    df['Order Date'] = pd.to_datetime(df['Order Date'], format='mixed',errors='coerce')
 
 
     df.rename(columns={'Order Date': 'Order DateTime'}, inplace=True)
