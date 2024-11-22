@@ -2,14 +2,14 @@ import streamlit as st
 import glob
 import pandas as pd
 
-@st.cache
+@st.cache_data
 def combine_data(path):
     dfs = [pd.read_csv(file) for file in glob.glob(path)]
     combined_df = pd.concat(dfs, ignore_index=True)
     return combined_df
 
 
-@st.cache
+@st.cache_data
 def process_data(df):
 
     df = df.dropna(how='all')

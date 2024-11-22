@@ -331,7 +331,7 @@ def product_quantity_by_month(df):
     return fig
 
 
-@st.cache
+@st.cache_data
 def create_all_visuals(df):
     fig7 = product_quantity(df)
     fig4 = product_sales(df)
