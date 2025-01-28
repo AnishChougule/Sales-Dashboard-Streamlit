@@ -1,4 +1,5 @@
 import streamlit as st
+import glob
 from data_processing import combine_data, process_data
 from data_visualization import create_all_visuals
 
@@ -36,33 +37,18 @@ st.markdown("""
 st.title("Sales Dashboard")
 st.markdown("This is a data analysis and visualization project.")
 
+visuals_files = glob.glob("static/visuals/*.html")
+
 try:
     with st.spinner('Processing data... Please wait!'):
-        filepath = "data/*.csv"
-        combined_df = combine_data(filepath)
-        maindf = process_data(combined_df)
 
+        visuals_html = []
+        for file in visuals_files:
+            with open(file, "r") as f:
+                visuals_html.append(f.read())
 
-    visuals = create_all_visuals(maindf)
-
-
-    tabs = st.tabs(["Page 1", "Page 2", "Page 3"])
-
-    with tabs[0]:
-        st.plotly_chart(visuals[0], use_container_width=True)
-        st.plotly_chart(visuals[1], use_container_width=True)
-        st.plotly_chart(visuals[2], use_container_width=True)
-
-    with tabs[1]:
-        st.plotly_chart(visuals[3], use_container_width=True)
-        st.plotly_chart(visuals[4], use_container_width=True)
-        st.plotly_chart(visuals[5], use_container_width=True)
-
-    with tabs[2]:
-        st.plotly_chart(visuals[6], use_container_width=True)
-        st.plotly_chart(visuals[7], use_container_width=True)
-        st.plotly_chart(visuals[8], use_container_width=True)
+        for visual in visuals_html:
+            st.components.v1.html(visual, height=900)
 
 except Exception as e:
-    st.error("Error! Reload the page.")
-
+    st.error(f"Error! Reload the page. Details: {e}")

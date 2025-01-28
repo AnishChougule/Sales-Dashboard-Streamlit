@@ -26,7 +26,9 @@ def product_quantity(df):
         xaxis_tickfont_size=12,
         yaxis_tickfont_size=12,
         font_family="Arial Black",
-        bargap=0.2
+        margin=dict(t=150, l=150, r=150, b=150),
+        bargap=0.2,
+        height=800
     )
 
     return fig
@@ -55,7 +57,9 @@ def product_sales(df):
         yaxis_title="Sales",
         xaxis_tickfont_size=12,
         yaxis_tickfont_size=12,
-        bargap=0.2
+        margin=dict(t=150, l=150, r=150, b=150),
+        bargap=0.2,
+        height=800
     )
     return fig
 
@@ -108,7 +112,9 @@ def orders_by_hour(df):
         yaxis=dict(title="Orders"),
         font=dict(size=12),
         font_family="Arial Black",
-        hovermode="x"
+        margin=dict(t=150, l=150, r=150, b=150),
+        hovermode="x",
+        height=800
     )
     return fig
 
@@ -145,9 +151,10 @@ def sales_by_city(df):
 
 
     fig.update_layout(
-        margin=dict(t=75, l=25, r=25, b=25),
+        margin=dict(t=150, l=150, r=150, b=150),
         title_font=dict(size=20),
         font_family="Arial Black", 
+        height=800
     )
     return fig
 
@@ -194,7 +201,8 @@ def sales_orders_by_month(df):
         yaxis_title="Sales",
         legend_title="Metrics",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-        margin=dict(t=75, l=25, r=25, b=25),
+        margin=dict(t=150, l=150, r=150, b=150),
+        height=800
     )
     return fig
 
@@ -227,7 +235,8 @@ def totalsales_totalorders(df):
         title="<b>Key Business Metrics</b>",
         title_font=dict(size=20),
         font_family = "Ariel Black",
-        margin=dict(t=75, l=50, r=50, b=50),
+        margin=dict(t=100, l=100, r=100, b=100),
+        height=800
     )
     return fig
 
@@ -259,7 +268,8 @@ def city_sales_by_month(df):
         ),
         yaxis_title="Sales",
         legend_title="Metrics",
-        margin=dict(t=75, l=25, r=25, b=25),
+        margin=dict(t=150, l=150, r=150, b=150),
+        height=800
     )
     return fig
 
@@ -293,7 +303,8 @@ def product_sales_by_month(df):
         ),
         yaxis_title="Sales",
         legend_title="Metrics",
-        margin=dict(t=75, l=25, r=25, b=25),
+        margin=dict(t=150, l=150, r=150, b=150),
+        height=800
     )
     return fig
 
@@ -326,7 +337,8 @@ def product_quantity_by_month(df):
         ),
         yaxis_title="Sales",
         legend_title="Metrics",
-        margin=dict(t=75, l=25, r=25, b=25),
+        margin=dict(t=150, l=150, r=150, b=150),
+        height=800
     )
     return fig
 
@@ -342,5 +354,5 @@ def create_all_visuals(df):
     fig5 = city_sales_by_month(df)
     fig6 = product_sales_by_month(df)
     fig8 = product_quantity_by_month(df)
-    return [fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9]
 
+    return [fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8, fig9]
