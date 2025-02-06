@@ -39,16 +39,20 @@ st.markdown("This is a data analysis and visualization project.")
 
 visuals_files = glob.glob("static/visuals/*.html")
 
-try:
-    with st.spinner('Processing data... Please wait!'):
-
-        visuals_html = []
-        for file in visuals_files:
+@st.cache_data
+def load_visuals(files):
+    visuals_html = []
+    for file in files:
+        try:
             with open(file, "r") as f:
                 visuals_html.append(f.read())
+        except Exception as e:
+            st.error(f"Error reading {file}: {e}")
+    return visuals_html
 
+try:
+        visuals_html = load_visuals(visuals_files)
         for visual in visuals_html:
             st.components.v1.html(visual, height=900)
-
 except Exception as e:
     st.error(f"Error! Reload the page. Details: {e}")

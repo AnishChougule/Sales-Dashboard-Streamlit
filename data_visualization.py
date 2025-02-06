@@ -1,4 +1,3 @@
-import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 
@@ -342,8 +341,6 @@ def product_quantity_by_month(df):
     )
     return fig
 
-
-@st.cache_data
 def create_all_visuals(df):
     fig7 = product_quantity(df)
     fig4 = product_sales(df)
